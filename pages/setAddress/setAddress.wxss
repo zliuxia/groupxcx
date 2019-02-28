@@ -1,0 +1,28 @@
+.group_message{
+  width: 100%;
+  background: red;
+}
+.group_list{
+  width: 100%;
+  line-height: 100%;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:20rpx 20rpx;
+  font-size: 24rpx;
+}
+.city_name{
+  flex: 1;
+}
+.list_button{
+  width: 200rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  float: left;
+  margin: 10rpx;
+}
+.lisTab{
+  flex: 1;
+}

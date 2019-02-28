@@ -1,0 +1,329 @@
+.groupbuy_body{
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+.groupbuy_content{
+  width: 100%;
+  background: #fff;
+  box-sizing: border-box;
+  padding-top: 260rpx;
+}
+.groupbuy_banner{
+  width: 100%;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.12); 
+  border-radius: 6rpx;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding-bottom:30rpx;
+  position: relative;
+}
+.nextRight{
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color:#F2922F;
+}
+.nextimg{
+  width: 14rpx;
+  height: 24rpx;
+  margin-left: 10rpx;
+}
+.bannerimg{
+  width: 100%;
+  height: 100%;
+}
+.groupbuy_banner:last-child{
+  margin-bottom: 0;
+}
+.lodeing{
+  width: 100%;
+  height: 80rpx;
+  background: #f8f8f8;
+  color:#333;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 32rpx;
+}
+.groupbuyFooter{
+  width:100%;
+  height: 130rpx;
+  background: #fff;
+  padding-top: 30rpx;
+  box-sizing: border-box;
+}
+.footerTitle{
+  width: 150rpx;
+  height: 50rpx;
+  margin:0 auto;
+  font-size: 24rpx;
+  color:#333;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  margin-bottom: 6rpx;
+}
+.footerimg{
+  width: 44rpx;
+  height: 44rpx;
+  margin-right: 10rpx;
+}
+.groupbuySlogan{
+  font-size: 20rpx;
+  color:#999;
+  line-height: 1;
+}
+.nullData{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  padding-top: 200rpx;
+  box-sizing: border-box;
+}
+.nullcenter{
+  width: 500rpx;
+  height: 400rpx;
+}
+.nullimg{
+  width: 200rpx;
+  height: 200rpx;
+  margin:0 auto;
+  display: block;
+}
+.nullTitle{
+  font-size: 24rpx;
+  color:#999;
+  text-align: center;
+  margin-top:20rpx;
+}
+.usermessage{
+  width: 100%;
+  height: 160rpx;
+  background-color: #f8f8f8;
+  display: flex;
+  align-items: center;
+  padding-left: 30rpx;
+  box-sizing: border-box;
+}
+.usermessage .footerimg{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-right: 30rpx;
+}
+.userNmae{
+  height: 28rpx;
+  line-height: 28rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color:#333;
+}
+.order_number{
+  font-size: 28rpx;
+  color:#333;
+  margin-bottom: 30rpx;
+  height: 128rpx;
+  border-bottom: 1px solid #ebebeb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:0 20rpx;
+  box-sizing: border-box;
+}
+.orderTittle{
+  width: 150rpx;
+  font-size: 28rpx;
+  line-height: 28rpx;
+  color:#999; 
+}
+.orderCenter{
+  width: 500rpx;
+  font-size: 28rpx;
+  line-height: 28rpx;
+  color:#333;
+}
+.orderStation{
+  width: 100%;
+  display: flex;
+  line-height: 58rpx;
+  padding:0 20rpx;
+  box-sizing: border-box;
+}
+.colorF2922F{
+  color:#F2922F;
+  margin-left: 5rpx;
+}
+.Xcount{
+  font-size: 24rpx;
+  color:#EF0000;
+}
+.copyCodeButton{
+  width: 220rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color:#F2922F;
+  margin:0 auto;
+  border:1px solid #F2922F;
+  border-radius: 6rpx;
+  background-color: #fff;
+  margin-top: 15rpx;
+}
+.width14{
+  width: 13rpx;
+  display: inline-block;
+}
+.width56{
+  width: 50rpx;
+  display: inline-block;
+}
+.bannerBody{
+  width: 100%;
+  box-sizing: border-box;
+  padding:0 30rpx;
+  padding-top: 30rpx;
+}
+.imgqrcode{
+  width: 200rpx;
+  height: 200rpx;
+}
+.order_message{
+  box-sizing: border-box;
+}
+.goodsmessage{
+  display: flex;
+  justify-content: space-between;
+}
+.speciName{
+  color:#999;
+}
+.color333{
+  color:#333;
+  margin-left: 24rpx;
+}
+.fontsize12{
+  font-size: 24rpx;
+}
+.overChapter{
+  position: absolute;
+  width: 140rpx;
+  height: 140rpx;
+  top: 100rpx;
+  right: 160rpx;
+}
+.overChapterimg{
+  width: 100%;
+  height: 100%;
+}
+.tableView{
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ebebeb;
+}
+.tableCart{
+  height: 100%;
+  width: 25%;
+  font-size: 28rpx;
+  color:#333;
+  text-align: center;
+  line-height: 100rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.tableText{
+  height: 100%;
+  display:inline-block;
+  box-sizing: border-box;
+}
+.CartActive .tableText{
+  color:#F2922F;
+  border-bottom: 4rpx solid #F2922F;
+}
+.color333{
+  color:#333;
+}
+.borderBottom{
+  border-bottom: 1px solid #ebebeb;
+  margin-bottom: 30rpx;
+  padding-bottom: 30rpx;
+}
+.goodsDate{
+  width: 100%;
+}
+.goodsname{
+  max-width: 400rpx;
+  display:block;
+  overflow:hidden;
+  word-break:keep-all;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  margin-bottom: 16rpx;
+}
+.leftCentent{
+  font-size: 24rpx;
+  color:#999;
+}
+.orderTitle{
+  font-size: 28rpx;
+  color:#333;
+  margin-bottom: 16rpx;
+  line-height: 1;
+}
+.ordertime{
+  line-height: 1;
+}
+.Num_cion{
+  width: 28rpx;
+  height: 28rpx;
+  position: absolute;
+  top: 20rpx;
+  right: 30rpx;
+}
+.Num_cionimg{
+  width: 28rpx;
+  height: 28rpx;
+  text-align: center;
+  line-height: 28rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.num_text{
+  width: 28rpx;
+  height: 28rpx;
+  text-align: center;
+  line-height: 28rpx;
+  color:#fff;
+  position: absolute;
+  z-index: 10;
+  font-size: 16rpx;
+  top: 0;
+  left: 0;
+}
+.orderCode{
+  font-size: 28rpx;
+  color: #333333;
+  letter-spacing: 6rpx;
+}
+.orderHeader{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fff;
+  z-index: 10;
+}
+.stationName{
+  margin-bottom: 16rpx;
+}
+.stationAddres {
+  line-height: 38rpx;
+}

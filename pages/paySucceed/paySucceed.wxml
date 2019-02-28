@@ -1,0 +1,25 @@
+<view class="groupbuy_body">
+    <view class='groupbuy_Succeed'>
+        <view class='succeed_header'>
+            <image class="succeed_img" src="../../image/sccessLogin.png"></image>
+            <view class="succeed_title">支付成功</view>
+        </view>
+        <view class="succeed_hint">
+          我们会尽快为您配送，期待您再次光临！
+        </view>
+        <view  class='QrCode' wx:if="{{qrcodeOne}}">
+          <view class='QrCode_title'>
+            取件时出示此码  请截图保存
+          </view>
+          <image bindtap="previewImage" data-src="{{qrcodeOne}}" data="image/png" class="QrCode_img" src="{{qrcodeOne}}"></image>
+        </view>
+        <view class="gohome_button" bindtap="gotoHomeBtn">返回首页</view>
+        
+        <!-- 微信关注组件 -->
+        <!-- <view class='groupbuy_attention'>
+          <view class="page-section page-section-gap">
+              <ad unit-id="adunit-demo4"></ad>
+          </view>
+        </view> -->
+    </view>
+</view>

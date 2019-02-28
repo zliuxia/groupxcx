@@ -1,0 +1,29 @@
+<import src="../../wxParse/wxParse.wxml" />
+
+<view class="groupbuy_body">
+  <view class='groupbuy_content'>
+    <view class="groupbuyDetailsbanner">
+      <swiper class="swiperbody" indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{goodsPhotos}}" wx:key="index">
+          <swiper-item>
+            <view class="swiper-item {{item}}">
+            <image mode="aspectFit" class='bannerImg' src="{{imgUrl+item}}">
+            </image></view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <view class='goodsmessage'>
+      <view class='goodsprice'><text class='priceunit'>￥</text>{{activityGoods.grouponPrice}}</view>
+      <view class='goodsname'>{{activityGoods.storeGoodsName}}</view>
+      <view class='goodspec'><text>规格：</text>{{activityGoods.storeGoodsSpecification}}</view>
+    </view>
+    <view class='detailsImg'>
+    <view class="wxParse">
+        <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+     </view>
+    </view>
+  </view>
+   
+</view>

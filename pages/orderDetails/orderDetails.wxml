@@ -1,0 +1,89 @@
+<view class="groupbuy_body">
+  <view class='groupbuy_content'>
+    <view class='groupbuy_Header'>
+      <!-- 自提站点 未取货 -->
+      <view wx:if="{{((orderDetails.serviceStatus === 2 ||orderDetails.serviceStatus === 6) && orderDetails.qrcode)}}" class='OrderHeader orderNotake'>
+        <image class='qrCodeimg' src="{{orderDetails.qrcode}}"></image>
+        <view class='NotakeTitle'>
+          取件时请出示此码取货!
+        </view>
+        <view class='NotakeAddress'>
+        请前往 
+        <text>{{orderDetails.pickupStoreName}} </text>
+        <text>{{orderDetails.pickupStoreAddress}}</text>
+        </view>
+      </view>
+      <!-- 收货地址 未取货-->
+      <view wx:elif="{{(orderDetails.serviceStatus === 2 ||orderDetails.serviceStatus === 6) && !orderDetails.qrcode}}" class='OrderHeader'>
+        <view class='orderStation'>
+          <view class='orderTittle'>
+            收货地址：
+          </view>
+          <view class='orderCenter'>
+            <view class='stationAddres'>{{orderDetails.receiverAddress}}</view>
+          </view>
+        </view>
+        <view class='orderStation'>
+          <view class='orderTittle'>
+            订单状态：
+          </view>
+          <view class='orderCenter'>
+            <view class='stationAddres'>未取货</view>
+          </view>
+        </view>
+      </view>
+      <!-- 自提站点 已取货-->
+      <view wx:elif="{{orderDetails.serviceStatus === 5 && orderDetails.qrcode}}" class='OrderHeader'>
+        <view class='orderStation' wx:if="{{orderDetails.pickupStoreName}}">
+            <view class='orderTittle'>
+              自提站点：
+            </view>
+            <view class='orderCenter'>
+              <view class='stationName'>{{orderDetails.pickupStoreName}}</view>
+              <view class='stationAddres'>{{orderDetails.pickupStoreAddress}}</view>
+            </view>
+          </view>
+        <view class='orderStation' wx:if="{{orderDetails.receiverAddress}}">
+          <view class='orderTittle'>
+            收货地址：
+          </view>
+          <view class='orderCenter'>
+            <view class='stationAddres'>{{orderDetails.receiverAddress}}</view>
+          </view>
+        </view>
+        <view class='orderStation'>
+          <view class='orderTittle'>
+            订单状态：
+          </view>
+          <view class='orderCenter'>
+            <view class='stationAddres'>已取货</view>
+          </view>
+        </view>
+        <view class='orderStation'  wx:if="{{orderDetails.doneTimeShow}}">
+          <view class='orderTittle'>
+            取货时间：
+          </view>
+          <view class='orderCenter'>
+            <view class='stationAddres'>{{doneTimeShow}}</view>
+          </view>
+        </view>
+        <view class='overChapterMes' wx:if="{{orderDetails.serviceStatus === 5}}">
+          <image class="overChapterimg" src="../../image/kaixin.png"></image>
+        </view>
+      </view>
+    </view>
+    <view class='groupbuy_main'>
+      <view class='goodsList' wx:for="{{orderDetails.itemList}}" wx:key="index">
+        <image class='goodsimg' src="{{imgHttp + item.goodsPhoto}}"></image>
+        <view class='goodsContent'>
+          <view class='goodsName'>{{item.goodsName}}</view>
+          <view class="goodsSpecification">{{item.specifications}}</view>
+          <view class='grouponPrice'>
+            <view class='goodsPrice'><text class='yuan'>￥</text>{{item.orderPrice}}</view>
+            <view class='goodsNum'>x{{item.goodsCount}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,71 @@
+<view class="groupbuy_body">
+  <view class='groupbuy_main'>
+    <view class='index_location_button' bindtap="selectCommunity" >
+      <view class='index_location_view'><text class="iconsitename">{{presentAddress.siteName}}</text><image class='icon_next' src='../../image/dowm_next.png'></image></view> 
+    </view>
+    <view class='groupbuy_banner_tab'>
+      <view class="page-section page-section-spacing swiper">
+        <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+          <block wx:for="{{background}}" wx:key="*this">
+            <swiper-item>
+              <view class="swiper-item  swiper_itemCart">
+                <image class='bannerSwiperimg' src="{{item}}">
+                </image>
+              </view>
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+    </view>
+    <view class='groupbuy_Class_tab'>
+      <image class='icon_tab' src="../../image/Groupleft.png"></image>
+      <view class='text_center'>全部商品</view>
+      <image class='icon_tab' src="../../image/Groupright.png"></image>
+    </view>
+    <view class='groupbuy_goodsList'>
+    <form catchsubmit="formSubmit" report-submit='true' wx:if="{{bannerListNull}}">
+      <view class='nullData'>
+        <view class='nullcenter'>
+          <image class='nullimg' src='../../image/nulldata.png'></image>
+          <view class='nullTitle'>暂无活动 请下拉刷新试试~</view>
+        </view>
+      </view>
+    </form>
+    <form catchsubmit="formSubmit" report-submit='true' wx:else>
+      <view class='goodsList' wx:for="{{bannerList}}" wx:key="{{index}}">
+        <button data-id="{{item.activityId}}" class='getfromidbutton' formType="submit">我要团购</button>
+        <view class='list_leftimg'>
+          <image class='goodsImg' src="{{imgUrl + item.phone}}">
+          </image>
+          <view class='shade_body' wx:if="{{item.activityStatus != 1}}">
+            <view class='shade_state' wx:if="{{item.activityStatus == 3}}">
+              已抢光
+            </view>
+            <view class='shade_state' wx:if="{{item.activityStatus == 2}}">即将开团</view>
+          </view>
+        </view>
+        <view class='list_rightCenter'>
+          <view class='goods_name'>{{item.activityName}}{{item.storeGoodsSpecification ? item.storeGoodsSpecification: ""}}</view>
+          <view class='goods_sellNum'>已售{{item.soldOut}}份</view>
+          <view class='over_time'>截团时间：{{item.endTimeShow}}</view>
+          <view class='price'>
+            <text class='sale_price'>￥{{item.price}}</text>
+            <text class='contrast_price' wx:if="{{item.haojiafang}}">{{item.haojiafang}}：¥{{item.haojiafangPrice}}</text>
+          </view>
+          <view class='goodscart'>
+            <image class='goodscartimg' src="../../image/goodscart.png"></image>
+          </view>
+        </view>
+      </view>
+    </form>
+    <view class='lodeing' wx:if="{{loadState}}">玩命加载中...</view>
+    <view class='lodeing groupbuyFooter' wx:if="{{!loadState}}" catchtap='logoclick'>
+      <view class='footerTitle' catchtap='logoclick'>
+        <image class="footerimg" src="../../image/footerLogo.png"></image>
+        <view class="footerText">指尖拼团</view>
+      </view>
+      <view class='groupbuySlogan'>5000万用户小区团便宜</view>
+    </view>
+    </view>
+  </view>
+</view>

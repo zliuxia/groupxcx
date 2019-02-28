@@ -1,0 +1,48 @@
+<view class="groupbuy_body">
+  <movable-area style="height: 100%;width: 100%; background: red;">
+    <form catchsubmit="formSubmit" report-submit='true'>
+    <view style="min-height:{{viewHeight}};" class='groupbuy_content'>
+      <view class='groupbuy_banner' wx:for="{{bannerList}}" wx:key="{{item.id}}">
+        <button  data-id="{{item.id}}" class='getfromidbutton' formType="submit">我要团购</button>
+        <image mode="{{aspectFill}}" class="bannerimg" src="{{imgUrl+item.activityBanner}}"></image>
+        <view class='state_section' wx:if="{{item.activityStatus == 3}}">
+        <image class='section_overimg' src="../../image/overing.png"></image>
+        </view>
+        <view class='state_section section_will' wx:if="{{item.activityStatus == 2}}"> <image class='section_begin' src="../../image/willimg.png"></image></view>
+      </view>
+      <view wx:if="{{bannerList.length === 0}}" class='groupbuy_banner' wx:for="{{5}}" wx:key="index">
+        <image mode="{{aspectFill}}" class="bannerimg zhanweiimg" src="../../image/zhanweiimg.png"></image>
+      </view>
+    </view>
+    </form>
+    <view class='lodeing' wx:if="{{loadState}}">玩命加载中...</view>
+    <view class='nullData' style="min-height:{{viewHeight}};" wx:if="{{bannerListNull}}">
+      <view class='nullcenter'>
+        <image class='nullimg' src='../../image/nulldata.png'></image>
+        <view class='nullTitle'>没有活动在进行中哦！</view>
+      </view>
+    </view>
+    <view class='lodeing groupbuyFooter' wx:if="{{!loadState}}">
+      <view class='footerTitle'>
+        <image class="footerimg" src="../../image/footerLogo.png"></image>
+        <view class="footerText">指尖拼团</view>
+      </view>
+      <view class='groupbuySlogan'>5000万用户小区团便宜</view>
+    </view>
+    <!-- 用户授权登录 -->
+    <view class='loginPopout' wx:if="{{!hasUserInfo && canIUse}}">
+      <view class='PopoutCenter'>
+        <view class='footerTitle'>
+          <image class="footerimg" src="../../image/footerLogo.png"></image>
+          <view class="footerText">指尖拼团</view>
+        </view>
+        <view class='groupbuySlogan'>5000万用户小区团便宜</view>
+        <button class='getUserInfoButton' type="primary" open-type="getUserInfo" bindgetuserinfo="getUserInfo">微信登录</button>
+      </view>
+    </view>
+    <movable-view id="orderEnter" class='orderEnter' bindtap="OrderList" direction="all" x="{{left}}" y="{{top}}">
+      <image class='userimg' src="{{userImg}}" wx:if="{{userImg}}"></image>
+      <image class='userimg' src="../../image/footerLogo.png" wx:else></image>
+    </movable-view>
+  </movable-area>
+</view>

@@ -1,0 +1,41 @@
+<view class="setaddress">
+  <!-- <button bindtap="setAddressData" data-Address="昆明市">昆明市</button>
+  <button bindtap="setAddressData" data-Address="拉萨市">拉萨市</button>
+  <button bindtap="setAddressData" data-Address="北京市">北京市</button> -->
+  <!-- <button bindtap="webButtonFn" class='webButton'>跳转到嵌入的网页</button> -->
+    <view class='group_message'>
+      <!-- <view class='group_list'>
+        <view class='list_title'>
+          城市：
+        </view>
+        <view class='list_center city_name'>
+          {{city}}
+        </view>
+        <button class='list_button' bindtap="switchcityFn" data-Address="{{city}}">修改</button>
+      </view> -->
+      <view class='group_list'>
+        <view class='list_title'>
+          地址：
+        </view>
+        <view>
+          <button style="background-color:{{selectIndex == index ? 'orange' : ''}};color: {{selectIndex == index ? '#fff' : ''}}" wx:for="{{citydata}}" wx:key="index" data-index="{{index}}" class='list_button' bindtap='selectCity'>{{item.cityName}}</button>
+        </view>
+        
+        <!-- <view class='list_center city_name'>
+          {{address}}
+        </view>
+        <button class='list_button' bindtap="chooseLocation" data-Address="{{address}}">修改</button> -->
+      </view>
+      <view class='group_list'>
+        <view class='lisTab jing'>
+          <!-- <text>long:{{location.longitude}}</text> -->
+          <text>long:{{selectAddress.long}}</text>
+        </view>
+        <view class='lisTab wei'>
+          <!-- <text>lati:{{location.latitude}}</text> -->
+          <text>lati:{{selectAddress.lati}}</text>
+        </view>
+      </view>
+    </view>
+    <button bindtap="gotoIndex">确定切换</button>
+</view>

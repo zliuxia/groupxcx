@@ -1,0 +1,89 @@
+<view class="selectCommunity">
+  <view class='selectCommunity_header'>
+    <image class='selectBg' src="../../image/bgIcon.png"></image>
+    <!-- 当用户没有默认选择的社区时为true -->
+    <view class='selectCenter selectCenterActive' bindtap="gotoTabindex" wx:if="{{presentAddress}}">
+      <view class='locationLogo'>
+        <image class="locationLogoimg" src="../../image/logoactive.png" catchtap="setAddress"></image>
+        <view class='loactionTitle'>当前社区</view>
+      </view>
+      <view class='locationCenterActive'>
+        <view class='communityName'>{{presentAddress.siteName}}</view>
+        <view class='distanceAddressName' wx:if="{{presentAddress.deliveryAddress}}">取货地址：{{presentAddress.deliveryAddress}}</view>
+      </view>
+    </view>
+    <view class='selectCenter' wx:else>
+      <view class='locationLogo'>
+        <image class="locationLogoimg" src="../../image/locationLogo.png" catchtap="setAddress"></image>
+        <view class='loactionTitle'>当前位置</view>
+      </view>
+      <view class='locationCenter'>
+        <view class='locationAddress'>{{city + LocalAddress? LocalAddress.address: ""}}</view>
+        <view class='selectCommunityButton'>
+          请选择您的社区
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='history_Community'>
+    <view class='Community_title' wx:if="{{HistoryAddress}}">
+      <image class='iconTab' src="../../image/iconLeft.png"></image>
+      <view class='text_center'>曾用社区</view>
+      <image class='iconTab' src="../../image/iconRight.png"></image>
+    </view>
+    <view class='Community_list_body historyCommunity_list_body' bindtap="selectHistoryCommunity" data-historyAddress="{{HistoryAddress}}" wx:if="{{HistoryAddress}}">
+      <view class='Community_list'>
+        <view class='communListLeft'>
+          <image class='communListimg' src="../../image/logo.png"></image>
+        </view>
+        <view class='communListRight'>
+          <view class='addressTitle'>
+            <view class="hissitename">{{HistoryAddress.siteName}}</view>
+          </view>
+          <view class='colonelname'>团长：{{HistoryAddress.colonel}}</view>
+          <view class='fetchgoodsAddress' wx:if="{{HistoryAddress.deliveryAddress}}">取货地址：{{HistoryAddress.deliveryAddress}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='Community_title'>
+        <image class='iconTab' src="../../image/iconLeft.png"></image>
+        <view class='text_center'>附近社区</view>
+        <image class='iconTab' src="../../image/iconRight.png"></image>
+      </view>
+    <view class='nullData' wx:if="{{bannerListNull}}">
+      <view class='nullcenter'>
+        <image class='nullimg' src='../../image/nulldata.png'></image>
+        <view class='nullTitle'>附近暂无社区 请下拉刷新试试~</view>
+      </view>
+    </view>
+    <view wx:else>
+      <view class='Community_list_body'>
+        <view class='Community_list' bindtap="selectCommunitylist" data-listAddress="{{item}}"  wx:for="{{SiteHomeData}}" wx:key="{{index}}">
+          <view class='communListLeft'>
+            <image class='communListimg' src="../../image/logo.png"></image>
+          </view>
+          <view class='communListRight'>
+            <view class='addressTitle'>
+              <view class="sitename">{{item.siteName}}</view>
+              <view class='distance'>距离您{{item.distance}}</view>
+            </view>
+            <view class='colonelname'>团长：{{item.colonel}}</view>
+            <view class='fetchgoodsAddress' wx:if="{{item.deliveryAddress}}">取货地址：{{item.deliveryAddress}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 用户授权登录 -->
+    <view class='loginPopout' wx:if="{{!hasUserInfo && canIUse}}">
+      <view class='PopoutCenter'>
+        <view class='footerTitle'>
+          <image class="footerimg" src="../../image/footerLogo.png"></image>
+          <view class="footerText">指尖拼团</view>
+        </view>
+        <view class='groupbuySlogan'>5000万用户小区团便宜</view>
+        <button class='getUserInfoButton' type="primary" open-type="getUserInfo" bindgetuserinfo="getUserInfo">微信登录</button>
+      </view>
+    </view>
+</view>

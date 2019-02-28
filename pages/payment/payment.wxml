@@ -1,0 +1,59 @@
+<view class="groupbuy_body">
+  <view class='groupbuy_content payment_content'>
+    <view class='groupbuy_from'>
+      <form catchsubmit="formSubmit" report-submit='true'>
+      <view class='formTop'>
+        <view class='gtoupInput'>
+          <label class="labeltext" for="receiverName">收货人</label>
+          <view><input  class="weui-input" type='text' maxlength="20" name="receiverName" placeholder="请输入姓名" placeholder-class="col-c6" value="{{receiverName}}" data-ipt-name="receiverName" bindblur='blurInput' bindinput='watchInput' disabled='{{loadingStatus}}'/></view>
+        </view>
+        <view class='gtoupInput'>
+          <label class="labeltext" for="receierPhone">收货人电话</label>
+          <input class="weui-input" placeholder-class="col-c6" type='number' maxlength="11" name="receierPhone" placeholder="请输入手机号" value="{{receierPhone}}" data-ipt-name="receierPhone" bindblur='blurInput' bindfocus='focusInput' bindinput='watchInput' disabled='{{loadingStatus}}' focus="{{focus}}"/>
+        </view>
+      </view>
+      <view class='formTop' wx:if="{{isExpress === 1}}">
+        <view class="textareasection">
+          <label class="labeltext textarealabel" for="address">收货地址</label>
+            <view class="textarea-wrp">
+              <textarea value='{{receiverAddress}}' placeholder-class="col-c6" class='groupbuyTextarea' data-ipt-name="receiverAddress" name="address" placeholder="请输入详情地址" bindinput="getTextarea" disabled='{{loadingStatus}}'/></view>
+        </view>
+      </view>
+      <view class='formStation'>
+        <view class="Stationtitle"><text>提货站点</text>
+        <!-- bindtap="goTackStation" <image class="rightNextimg" src='../../image/rightNext.png'></image> -->
+        </view>
+        <view class='pitchOnStation'>
+          <view><text class='pitchOnTitle'></text><text class='StationName'>{{station.siteName}}</text></view>
+          <view class='StationAddress'>{{station.deliveryAddress}}</view>
+        </view>
+      </view>
+      <view class='primaryFooter'>
+        <view class='primaryTotal'>
+          <text class='TotalTitle'>合计：</text>
+          <text class='Totalprice'>￥{{Totalprice}}</text>
+        </view>
+        <button class='primaryButton' formType="submit" loading="{{loadingStatus}}">支付</button>
+        
+      </view>
+    </form>
+    </view>
+    <view class='openBindPhone' wx:if="{{showBindPhone}}">
+      <view class='bingPhoneCentent'>
+        <image class='bingPhonebg' src="../../image/bindPonebg.png"></image>
+        <view class='closeBindPhone' bindtap='CloseBindPhoneFn'>
+          <image class='closeX' src="../../image/bindPoneClear.png"></image>
+        </view>
+        <view class='bindPhoneCenter'>
+            <view class='bindPhoneMagess'>
+              <view class='bindPhoneTitle'>需要您的同意</view>
+              <view class='bindPhoneText'>需要您的手机授权</view>
+              <view class='bindPhoneText'>授权后可享受更多优质服务</view>
+            </view>
+            <button  class='confirmButton' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"> 确认授权</button>
+            <!-- <button class='confirmButton' bindtap='confirmBindPhoneFn'>确认授权</button> -->
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,140 @@
+<!--pages/activityDetails/activityDetails.wxml-->
+<view class="activityDetails_body {{showModal ? 'over-hide' : ''}}" >
+  <view wx:if="{{showDom}}">
+    <view class="activityDetails_head">
+      <image mode="scaleToFill" src="{{imgUrl+communityGroupon.siteHeadImage}}" class="activityDetails_logo"></image>
+      <view class="activityDetails_head_right">
+        <view class="activityDetails_title">
+          <text>{{communityGroupon.siteName}}</text>
+          <text>{{communityGroupon.activityTime}}</text>
+        </view>
+        <view class="activityDetails_subtitle">
+          <text>有 <text>{{communityGroupon.viewCount}}</text>人看过</text>
+          <text>|</text>
+          <text>有  <text>{{communityGroupon.buyCount}}</text>人买过</text>
+          <text>|</text>
+          <text>有 <text>{{communityGroupon.shareCount}}</text>人分享过</text>
+        </view>
+      </view>
+      <view class="activityDetails_share">
+
+        <!-- <button formType="submit"  class="activityDetails_share_btn marginr40" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+          <image mode="{{aspectFill}}" src="../../image/GroupWinxin.png"></image>
+        </button> -->
+        <button formType="submit"  open-type="share" class="activityDetails_share_btn">
+          <image src="../../image/GroupCopy.png" bindtap="shareFriend"></image>
+        </button>
+      </view>
+    </view>
+    <view class="activityDetails_content">
+      <form catchsubmit="formSubmit" report-submit='true'>
+      <view class="activityDetails_content_main">
+        <text class="activityDetails_content_desc">
+          {{communityGroupon.activityDescription}}
+        </text>
+        <view class="{{'activityDetails_content_image activityDetailscontent_image_' + communityGroupon.activityPics.length}}">
+          <image bindtap="previewImage" mode="aspectFill" class="{{'content_image_' + communityGroupon.activityPics.length}}" data-images="{{imgUrl+item}}" src="{{item ? imgUrl+item : '../../image/logo.png'}}" wx:for="{{communityGroupon.activityPics}}" wx:key="index"></image>
+        </view>
+        <view wx:for="{{listActivityGoods}}" wx:key="index" class="activityDetails_content_shop">
+          <image mode="aspectFill" bindtap="goProductDetails" data-goodsSource="{{item.goodsSource}}" data-item-id="{{item.id}}" src="{{item.goodsPic ? imgUrl + item.goodsPic : '../../image/logo.png'}}" class="activityDetails_content_shopimg"></image>
+          <view>
+            <view class="activityDetails_content_shoptitle">
+              <text class='goodsTitle'>{{item.storeGoodsName}}</text>
+              <text class="activityDetails_content_shopbuyed">已团{{item.groupNums}}个</text>
+            </view>
+            <view class="activityDetails_content_shopSpecification">
+              <text>{{item.storeGoodsSpecification}}</text>
+            </view>
+            <view class="activityDetails_content_shopprice">
+              <view class="storeSellPrice">
+                <text>{{(item.storeSellPrice && item.storeSellPrice != "0.00")  ? "￥" + item.storeSellPrice : ""}}</text>
+              </view>
+              <view class="grouponPrice">
+                <text>￥</text>
+                <text>{{item.grouponPrice}}</text>
+              </view>
+            </view>
+          </view>
+          <view class="add_mount">
+            <image src="../../image/delbutton.png" wx:if="{{item.mount == 0 || !item.mount}}"></image>
+            <image src="../../image/delgoods2.png" wx:else bindtap="delGoods" data-index="{{index}}"></image>
+            <text>{{item.mount ? item.mount : 0}}</text>
+            <image src="../../image/addbutton.png" bindtap="addGoods" data-index="{{index}}"></image>
+          </view>
+        </view>
+        <view class="activityDetails_content_total">
+          <view class="activityDetails_content_totalPrice">
+            <text>总价：</text>
+            <text>￥{{totalPrice}}</text>
+          </view>
+        </view>
+        <view class="activityDetails_content_wantbuy bg-hui" wx:if="{{communityGroupon.activityStatus == 3}}">
+          <button formType="submit" class="backHome" bindtap='backHome'>首页</button>
+          <button>已结束</button>
+        </view>
+        <view class="activityDetails_content_wantbuy bg-hui" wx:elif="{{communityGroupon.activityStatus == 2}}">
+          <button formType="submit" class="backHome" bindtap='backHome'>首页</button>
+          <button>距开团{{remainTime}}</button>
+        </view>
+        <view class='activityDetails_content_wantbuy' wx:elif="{{totalPrice == 0.00}}">
+          <button formType="submit" class="backHome" bindtap='backHome'>首页</button>
+          <button bindtap='notPay'>我要团购</button>
+        </view>
+        <view class="activityDetails_content_wantbuy" wx:elif="{{communityGroupon.activityStatus == 1}}">
+          <button class="backHome"  formType="submit" bindtap='backHome'>首页</button>
+
+          <button formType="submit" loading="{{loadingStatus}}" open-type="getUserInfo" bindgetuserinfo="isUserInfo" class="wantbuy">我要团购</button>
+        </view>
+        <view class="activityDetails_bottom">
+          <view wx:for="{{buyedList}}" wx:key="index" class="activityDetails_bottom_list">
+              <image mode="aspectFill" src="{{item.icon ?item.icon : '../../image/logo.png'}}"></image>
+            <view class="activityDetails_bottom_name">
+              <view>{{item.nickname}}</view>
+              <view>{{item.timeDifference}}</view>
+            </view>
+            <view class="activityDetails_bottom_info">
+              <text>{{item.goodsName}}{{item.specifications}}</text>
+              <text>+{{item.goodsCount}} </text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <text class="activityDetails_content_triangle">
+        <text></text>
+      </text>
+      <view class="canvas-box">
+        <canvas canvas-id="myCanvas" style="width:100%;height:{{windowHeight}}px;"></canvas>
+      </view>
+
+      <view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModal}}" catchtap="hide">
+        <image src="../../image/cloceX.png" class="close-bg"></image>
+        <view class="modalDlg">
+          <image src="{{shareImg}}" mode="widthFix"></image>
+        </view>
+        <view class="saveimg" style="margin-top:{{shareImageHeight * 540/750 + windowWidth / 750 * 167 + 'px'}}">
+          <button type="primary" catchtap="saveImg">保存图片</button>
+        </view>
+      </view>
+
+      <view class='loginPopout' wx:if="{{isinFn}}">
+        <view class='PopoutCenter'>
+          <view class='footerTitle'>
+            <image class="footerimg" src="../../image/footerLogo.png"></image>
+            <view class="footerText">指尖拼团</view>
+          </view>
+          <view class='groupbuySlogan'>5000万用户小区团便宜</view>
+          <button class='getUserInfoButton' type="primary" open-type="getUserInfo" bindgetuserinfo="getUserInfo">微信登录</button>
+        </view>
+      </view>
+      <!-- <image mode="aspectFill" src="{{qrcodeImg}}"></image> -->
+      </form>
+    </view>
+  </view>
+  <view wx:if="{{showNull}}" class='nullData'>
+    <view class='nullcenter'>
+        <image class='nullimg' src='../../image/nulldata.png'></image>
+        <view class='nullTitle'>该城市未开放此活动</view>
+        <view class='nullTitle' bindtap="backHome">点击<text class="colorActive">返回首页</text>查看更多活动</view>
+      </view>
+  </view>
+</view>

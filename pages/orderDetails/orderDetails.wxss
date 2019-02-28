@@ -1,0 +1,131 @@
+.groupbuy_body{
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+.groupbuy_content{
+  width: 100%;
+  background: #fff;
+  box-sizing: border-box;
+}
+.groupbuy_Header{
+  width: 100%;
+  box-sizing: border-box;
+  padding:30rpx;
+}
+.OrderHeader{
+  width: 100%;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.12);
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding:15rpx 20rpx;
+  position: relative;
+}
+.orderTittle{
+  width: 150rpx;
+  font-size: 28rpx;
+  color:#333; 
+}
+.orderCenter{
+  width: 500rpx;
+  font-size: 28rpx;
+  color:#333;
+}
+.orderStation{
+  width: 100%;
+  display: flex;
+  line-height: 48rpx;
+}
+.colorF2922F{
+  color:#F2922F;
+  margin-left: 5rpx;
+}
+.qrCodeimg{
+  width: 250rpx;
+  height: 250rpx;
+  margin: 0 auto;
+  margin-top: 15rpx;
+}
+.orderNotake{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction:column;
+}
+.NotakeTitle{
+  font-size: 24rpx;
+  color:#F2922F;
+  margin:0 auto;
+  margin-top: 20rpx;
+  line-height: 1;
+}
+.NotakeAddress{
+  font-size: 24rpx;
+  color:#333;
+  margin:0 auto;
+  line-height:44rpx;
+  margin-top: 8rpx;
+  margin-bottom: 7rpx;
+}
+.groupbuy_main{
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 30rpx;
+}
+.goodsList{
+  width: 100%;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ebebeb;
+  padding:20rpx 30rpx 20rpx 0;
+  display: flex;
+}
+.goodsimg{
+  width: 160rpx;
+  height: 160rpx;
+  margin-right: 20rpx;
+}
+.goodsContent{
+  flex: 1;
+  position: relative;
+}
+.goodsName{
+  font-size: 28rpx;
+  color:#333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+  max-width: 480rpx;
+}
+.goodsSpecification{
+  font-size: 24rpx;
+  color:#999;
+}
+.grouponPrice{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 10rpx;
+}
+.goodsPrice{
+  font-size:32rpx;
+  color:#333; 
+}
+.goodsNum{
+  font-size: 32rpx;
+  color:#333;
+}
+.yuan{
+  font-size: 24rpx;
+}
+.overChapterMes{
+  position: absolute;
+  width: 140rpx;
+  height: 140rpx;
+  bottom: 20rpx;
+  right: 20rpx;
+}
+.overChapterimg{
+  width: 100%;
+  height: 100%;
+}

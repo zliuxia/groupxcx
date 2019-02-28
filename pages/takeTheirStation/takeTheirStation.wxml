@@ -1,0 +1,40 @@
+<view class="groupbuy_body">
+  <view class='groupbuy_content takeStation_content'>
+    <!-- <view class='takeStation_title'>
+        请选择提货点
+      </view> -->
+    <view class='takeStation_input'>
+      <view class="search_input">
+        <image class='search_img' src="../../image/search.png"></image>
+        <input type='text' class='input_view' value="{{stationName}}" name="stationName" data-station-name="stationName" bindinput='watchInput' placeholder="请输入相关地址信息" />
+      </view>
+    </view>
+    <view wx:if="{{StationObj.length >0}}" class='takeStation_list'>
+      <radio-group name="takeStation">
+        <label bindtap="tackstationtap" wx:if="{{stationIndex >= 0}}" data-station="{{StationObj[stationIndex]}}" data-stationindex="{{stationIndex}}" wx:key="stationIndex" class="stationActive">
+          <view class='tackStation'>
+            <view class='tackname'>
+              <text>{{StationObj[stationIndex].branchName}}</text>
+              <text>默认</text>
+            </view>
+            <view class='tackAddress'>{{StationObj[stationIndex].allAddress}}</view>
+            <radio class='tackradio' value="{{station}}" />
+          </view>
+        </label>
+        <label id="tackstation" bindtap="tackstationtap" data-station="{{item}}" data-stationindex="{{index}}" wx:for="{{StationObj}}" wx:key="index" wx:if="{{index != stationIndex}}">
+          <view class='tackStation'>
+            <view class='tackname'>{{item.branchName}}</view>
+            <view class='tackAddress'>{{item.allAddress}}</view>
+            <radio class='tackradio' value="{{station}}" />
+          </view>
+        </label>
+      </radio-group>
+    </view>
+      <view class='nullData' style="min-height:{{viewHeight}};" wx:elif="{{nullstate}}">
+        <view class='nullcenter'>
+          <image class='nullimg' src='../../image/nulldata.png'></image>
+          <view class='nullTitle'>没有您要搜索的自提站点哟！</view>
+        </view>
+      </view>
+  </view>
+</view>

@@ -1,0 +1,189 @@
+.groupbuy_body{
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+.groupbuy_content{
+  width: 100%;
+  background: #fff;
+  padding:30rpx;
+  box-sizing: border-box;
+}
+.groupbuy_banner{
+  width: 100%;
+  height:300rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.12); 
+  border-radius: 6rpx;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bannerimg{
+  width: 100%;
+  height: 100%;
+}
+.groupbuy_banner:last-child{
+  margin-bottom: 0;
+}
+.lodeing{
+  width: 100%;
+  height: 80rpx;
+  background: #f8f8f8;
+  color:#333;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 32rpx;
+}
+.groupbuyFooter{
+  width:100%;
+  height: 130rpx;
+  background: #fff;
+  padding-top: 30rpx;
+  box-sizing: border-box;
+}
+.footerTitle{
+  width: 150rpx;
+  height: 50rpx;
+  margin:0 auto;
+  font-size: 24rpx;
+  color:#333;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  margin-bottom: 6rpx;
+}
+.footerimg{
+  width: 44rpx;
+  height: 44rpx;
+  margin-right: 10rpx;
+}
+.groupbuySlogan{
+  font-size: 20rpx;
+  color:#999;
+  line-height: 1;
+}
+.loginPopout{
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.PopoutCenter{
+  width: 590rpx;
+  height: 360rpx;
+  background: #fff;
+  text-align: center;
+  padding:30rpx;
+  box-sizing: border-box;
+  padding-top: 50rpx;
+}
+.PopoutCenter .footerTitle{
+  width: 200rpx;
+  margin-bottom: 30rpx;
+}
+.PopoutCenter .footerText{
+  font-size: 32rpx;
+}
+.PopoutCenter .groupbuySlogan{
+  font-size: 32rpx;
+}
+.getUserInfoButton{
+  margin-top: 50rpx;
+}
+.nullData{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+.nullcenter{
+  width: 500rpx;
+  height: 600rpx;
+}
+.nullimg{
+  width: 200rpx;
+  height: 200rpx;
+  margin:0 auto;
+  display: block;
+}
+.nullTitle{
+  font-size: 24rpx;
+  color:#999;
+  text-align: center;
+  margin-top:20rpx;
+}
+.againButton{
+  color:#666;
+  border: 1rpx solid #999;
+  width: 200rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  background: #fff;
+  font-size: 24rpx;
+  margin:0 auto;
+  margin-top: 20rpx;
+  border-radius: 10rpx;
+}
+.backHuise{
+  background: #ddd;
+  border-color: #ddd;
+  color:#fff;
+}
+.orderEnter{
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  color:#fff;
+  font-size: 24rpx;
+  line-height: 100rpx;
+  text-align: center;
+  position: fixed;
+  z-index: 99;
+}
+.userimg{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  box-shadow:0 2px 8px 0 rgba(0,0,0,0.12);
+}
+.state_section{
+  position: absolute;
+  right: 0rpx;
+  top: 0rpx;
+  width: 123rpx;
+  height: 123rpx;
+}
+.zhanweiimg{
+  width: 570rpx;
+  height: 190rpx;
+}
+.section_overimg,.section_begin{
+  width: 123rpx;
+  height: 123rpx;
+}
+.getfromidbutton{
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  color:transparent;
+  box-sizing: border-box;
+  border:none;
+  position: absolute;
+  z-index: 1;
+}
+button::after{ border: none; }
+

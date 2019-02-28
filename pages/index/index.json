@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "指尖拼团",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black"
+}

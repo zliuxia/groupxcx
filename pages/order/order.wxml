@@ -1,0 +1,115 @@
+<view class="groupbuy_body">
+  <view style="min-height:{{viewHeight}};" class='groupbuy_content'>
+    <view class='orderHeader'>
+      <view class='usermessage' bindtap="setAddress">
+        <image class="footerimg" src="{{userInfo.avatarUrl? userInfo.avatarUrl : '../../image/footerLogo.png'}}"></image>
+        <view class='userNmae'>{{userInfo.nickName?userInfo.nickName :'用户'}}</view>
+      </view>
+      <view class='tableView'>
+        <view class="{{tableindex===0?'tableCart CartActive': 'tableCart'}}" bindtap="getOrderChange" data-tableIndex="0">
+          <text class='tableText'>在途中</text>
+          <view class='Num_cion' wx:if="{{onTheWay != 0}}">
+            <image class='Num_cionimg' src="../../image/Oval.png"></image>
+            <view class='num_text'>{{onTheWay}}</view>
+          </view>
+        </view>
+        <view class="{{tableindex===1?'tableCart CartActive': 'tableCart'}}" bindtap="getOrderChange" data-tableIndex="1">
+          <text class='tableText'>待取货</text>
+          <view class='Num_cion' wx:if="{{forPickup != 0}}">
+            <image class='Num_cionimg' src="../../image/Oval.png"></image>
+            <view class='num_text'>{{forPickup}}</view>
+          </view>
+        </view>
+        <view class="{{tableindex===2?'tableCart CartActive': 'tableCart'}}" bindtap="getOrderChange" data-tableIndex="2">
+          <text class='tableText'>已取货</text>
+        </view>
+        <view class="{{tableindex===3?'tableCart CartActive': 'tableCart'}}" bindtap="getOrderChange" data-tableIndex="3">
+          <text class='tableText'>全部</text>
+        </view>
+      </view>
+    </view>
+    <view class='bannerBody' wx:if="{{bannerList.length}}">
+      <view class='groupbuy_banner' wx:for="{{bannerList}}" wx:key="index">
+        <view class='overChapter' wx:if="{{item.serviceStatus === 5}}">
+          <image class="overChapterimg" src="../../image/kaixin.png"></image>
+        </view>
+        <view class='overChapter' wx:if="{{item.serviceStatus === 2}}">
+          <image class="overChapterimg" src="../../image/Bitmap1.png"></image>
+        </view>
+        <view class='order_number'>
+          <view class='leftCentent'>
+            <view class='orderTitle'>订单号：{{item.orderCode}}</view>
+            <view class="ordertime">下单时间：{{item.payTimeShow}}</view>
+          </view>
+          <view class='nextRight color333' wx:if="{{item.serviceStatus === 5}}">
+            已取货
+          </view>
+          <view class='nextRight' wx:elif="{{item.serviceStatus === 2}}">
+            待取货
+          </view>
+          <view class='nextRight' wx:elif="{{item.serviceStatus === 6}}">
+            在途中
+          </view>
+        </view>
+        <view class='order_message'>
+          <view class='orderStation borderBottom' wx:if="{{item.storeOrderItemEntity}}">
+            <view class='orderCenter goodsDate'>
+              <view class='goodslist' wx:for="{{item.storeOrderItemEntity}}" wx:key="index">
+              <view class='goodsmessage'>
+                <view class='goodsname'>{{item.goodsName}}</view>
+                <view class='numberCount Xcount'><text class='fontsize12'>x</text>{{item.goodsCount}}</view>
+              </view>
+                <view class='goodsmessage'>
+                  <view class='speciName'>{{item.specifications}}
+                  </view>
+                  <view class='numberCount'>
+                    <text class='fontsize12'>￥</text>{{item.orderPrice}}</view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class='orderStation' wx:if="{{(item.serviceStatus === 2 ||item.serviceStatus === 6)&&item.qrcode}}">
+            <view class='orderTittle'>取<text class='width14'></text>货<text class='width14'></text>码：</view>
+            <view class='orderCenter'>
+              <view class='orderCode' wx:if="{{item.extractCode}}">{{item.extractCode}}</view>
+              <image bindtap="previewImage" data-src="{{item.qrcode}}" class='imgqrcode' src="{{item.qrcode}}"></image>
+            </view>
+          </view>
+          <view class='orderStation' wx:if="{{item.pickupStoreName && item.serviceStatus != 5}}">
+            <view class='orderTittle'>自提站点：</view>
+            <view class='orderCenter'>
+              <view class='stationName'>{{item.pickupStoreName}}</view>
+              <view class='stationAddres'>{{item.pickupStoreAddress}}</view>
+            </view>
+          </view>
+          <view class='orderStation' wx:if="{{!item.pickupStoreName &&item.receiverAddress && item.serviceStatus != 5}}">
+            <view class='orderTittle'>收货地址：</view>
+            <view class='orderCenter'>
+              <view class='stationAddres'>{{item.receiverAddress}}</view>
+            </view>
+          </view>
+          <view class='orderStation' wx:if="{{item.doneTimeShow}}">
+            <view class='orderTittle'>取货时间：</view>
+            <view class='orderCenter'>
+              <view class='stationAddres'>{{item.doneTimeShow}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='nullData' wx:elif="{{nullOrder}}">
+      <view class='nullcenter'>
+        <image class='nullimg' src='../../image/nulldata.png'></image>
+        <view class='nullTitle'>您还没有订单哟！</view>
+      </view>
+    </view>
+  </view>
+  <view class='lodeing' wx:if="{{loadState}}">玩命加载中...</view>
+  <view class='lodeing groupbuyFooter' wx:else>
+    <view class='footerTitle'>
+      <image class="footerimg" src="../../image/footerLogo.png"></image>
+      <view class="footerText">指尖拼团</view>
+    </view>
+    <view class='groupbuySlogan'>5000万用户小区团便宜</view>
+  </view>
+</view>

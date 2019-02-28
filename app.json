@@ -1,0 +1,48 @@
+{
+  "pages":[
+    "pages/activeIndex/activeIndex",
+    "pages/selectCommunity/selectCommunity",
+    "pages/logs/logs",
+    "pages/paySucceed/paySucceed",
+    "pages/productDetails/productDetails",
+    "pages/takeTheirStation/takeTheirStation",
+    "pages/activityDetails/activityDetails",
+    "pages/payment/payment",
+    "pages/order/order",
+    "pages/orderDetails/orderDetails",
+    "pages/setAddress/setAddress",
+    "pages/webView/webView",
+    "pages/switchcity/switchcity"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "您的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "tabBar": {
+    "color": "#333",
+    "selectedColor": "#F2922F",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/activeIndex/activeIndex",
+        "iconPath": "image/icon_index.png",
+        "selectedIconPath": "image/icon_index_active.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "iconPath": "image/icon_home.png",
+        "selectedIconPath": "image/icon_home_active.png",
+        "text": "我的"
+      }
+    ]
+  }
+}
